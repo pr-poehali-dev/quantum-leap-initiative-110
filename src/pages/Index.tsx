@@ -6,7 +6,7 @@ import { ScrollTrigger } from "gsap/ScrollTrigger"
 
 gsap.registerPlugin(ScrollTrigger)
 
-export default function YerbaVerdeLandingPage() {
+export default function PandaVapeLandingPage() {
   const [isLoading, setIsLoading] = useState(true)
   const [progress, setProgress] = useState(0)
 
@@ -21,7 +21,6 @@ export default function YerbaVerdeLandingPage() {
   const ctaRef = useRef<HTMLElement>(null)
 
   useEffect(() => {
-    // Animate progress bar from 0 to 100 over 3 seconds
     const duration = 3000
     const interval = 30
     const steps = duration / interval
@@ -33,7 +32,6 @@ export default function YerbaVerdeLandingPage() {
       if (currentProgress >= 100) {
         currentProgress = 100
         clearInterval(timer)
-        // Wait a bit before hiding preloader
         setTimeout(() => {
           setIsLoading(false)
         }, 200)
@@ -62,7 +60,6 @@ export default function YerbaVerdeLandingPage() {
         }
       }
 
-      // Hero animation
       gsap.from(heroRef.current?.querySelector(".hero-content"), {
         opacity: 0,
         y: 60,
@@ -78,7 +75,6 @@ export default function YerbaVerdeLandingPage() {
         ease: "power3.out",
       })
 
-      // Benefits section
       gsap.from(benefitsRef.current?.querySelector(".benefits-title"), {
         scrollTrigger: {
           trigger: benefitsRef.current,
@@ -102,7 +98,6 @@ export default function YerbaVerdeLandingPage() {
         ease: "power3.out",
       })
 
-      // About section
       gsap.from(aboutRef.current?.querySelector(".about-image"), {
         scrollTrigger: {
           trigger: aboutRef.current,
@@ -125,7 +120,6 @@ export default function YerbaVerdeLandingPage() {
         ease: "power3.out",
       })
 
-      // Desire section
       gsap.from(desireRef.current?.querySelector("h2"), {
         scrollTrigger: {
           trigger: desireRef.current,
@@ -149,7 +143,6 @@ export default function YerbaVerdeLandingPage() {
         ease: "power3.out",
       })
 
-      // Instigate section
       gsap.from(instigateRef.current?.querySelector(".instigate-content"), {
         scrollTrigger: {
           trigger: instigateRef.current,
@@ -173,7 +166,6 @@ export default function YerbaVerdeLandingPage() {
         ease: "power3.out",
       })
 
-      // Why section
       gsap.from(whyRef.current?.querySelector(".why-content"), {
         scrollTrigger: {
           trigger: whyRef.current,
@@ -197,7 +189,6 @@ export default function YerbaVerdeLandingPage() {
         ease: "power3.out",
       })
 
-      // Pricing cards
       gsap.from(pricingRef.current?.querySelectorAll(".pricing-card"), {
         scrollTrigger: {
           trigger: pricingRef.current,
@@ -210,7 +201,6 @@ export default function YerbaVerdeLandingPage() {
         ease: "power3.out",
       })
 
-      // CTA section
       gsap.from(ctaRef.current?.querySelector(".cta-box"), {
         scrollTrigger: {
           trigger: ctaRef.current,
@@ -229,19 +219,24 @@ export default function YerbaVerdeLandingPage() {
   return (
     <>
       {isLoading && (
-        <div className="fixed inset-0 z-[100000] flex flex-col items-center justify-center bg-[#0E0E0E]">
+        <div className="fixed inset-0 z-[100000] flex flex-col items-center justify-center bg-[#060A14]">
           <div className="flex flex-col items-center gap-8 px-6">
-            {/* Logo or brand name */}
-            <h1 className="font-serif text-4xl tracking-tight text-white md:text-5xl lg:text-6xl">
-              YERBA
-              <span className="block text-[#B59F26]">VERDE</span>
-            </h1>
+            <div className="flex flex-col items-center gap-2">
+              <img
+                src="https://cdn.poehali.dev/files/6ce55570-f7eb-4189-8a33-0fff0f475036.jpg"
+                alt="Panda Vape"
+                className="h-24 w-24 object-contain"
+              />
+              <h1 className="font-serif text-4xl tracking-tight text-white md:text-5xl lg:text-6xl">
+                PANDA
+                <span className="block text-[#3B9EFF]">VAPE</span>
+              </h1>
+            </div>
 
-            {/* Progress bar container */}
             <div className="w-full max-w-md">
-              <div className="h-2 w-full overflow-hidden rounded-full bg-[#1E1E1E]">
+              <div className="h-2 w-full overflow-hidden rounded-full bg-[#0D1A2E]">
                 <div
-                  className="h-full rounded-full bg-gradient-to-r from-[#6B5C08] to-[#B59F26] transition-all duration-300 ease-out"
+                  className="h-full rounded-full bg-gradient-to-r from-[#1A4A8A] to-[#3B9EFF] transition-all duration-300 ease-out"
                   style={{ width: `${progress}%` }}
                 />
               </div>
@@ -251,13 +246,12 @@ export default function YerbaVerdeLandingPage() {
         </div>
       )}
 
-      <main className="w-full overflow-x-hidden bg-[#0E0E0E]">
+      <main className="w-full overflow-x-hidden bg-[#060A14]">
         {/* Marquee */}
-        <div ref={marqueeRef} className="w-full overflow-hidden bg-[#6B5C08] py-4">
+        <div ref={marqueeRef} className="w-full overflow-hidden bg-[#1A3A6B] py-4">
           <div className="marquee-content flex items-center gap-4 whitespace-nowrap">
-            {/* First set of items */}
             <div className="flex items-center justify-center rounded-xl bg-white px-6 py-1.5 md:px-8">
-              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: ПЕРВЫЙ10</span>
+              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: PANDA10</span>
             </div>
             <div className="flex items-center justify-center rounded-xl px-4 py-1.5 md:px-6">
               <span className="font-serif text-xs font-normal text-white md:text-sm">
@@ -265,15 +259,15 @@ export default function YerbaVerdeLandingPage() {
               </span>
             </div>
             <div className="flex items-center justify-center rounded-xl bg-white px-6 py-1.5 md:px-8">
-              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: ПЕРВЫЙ10</span>
+              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: PANDA10</span>
             </div>
             <div className="flex items-center justify-center rounded-xl px-4 py-1.5 md:px-6">
               <span className="font-serif text-xs font-normal text-white md:text-sm">
-                СКИДКА 10% НА ПЕРВЫЙ ЗАКАЗ
+                БЕСПЛАТНАЯ ДОСТАВКА ОТ 3000 Р
               </span>
             </div>
             <div className="flex items-center justify-center rounded-xl bg-white px-6 py-1.5 md:px-8">
-              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: ПЕРВЫЙ10</span>
+              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: PANDA10</span>
             </div>
             <div className="flex items-center justify-center rounded-xl px-4 py-1.5 md:px-6">
               <span className="font-serif text-xs font-normal text-white md:text-sm">
@@ -283,7 +277,7 @@ export default function YerbaVerdeLandingPage() {
 
             {/* Duplicated set for seamless loop */}
             <div className="flex items-center justify-center rounded-xl bg-white px-6 py-1.5 md:px-8">
-              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: ПЕРВЫЙ10</span>
+              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: PANDA10</span>
             </div>
             <div className="flex items-center justify-center rounded-xl px-4 py-1.5 md:px-6">
               <span className="font-serif text-xs font-normal text-white md:text-sm">
@@ -291,15 +285,15 @@ export default function YerbaVerdeLandingPage() {
               </span>
             </div>
             <div className="flex items-center justify-center rounded-xl bg-white px-6 py-1.5 md:px-8">
-              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: ПЕРВЫЙ10</span>
+              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: PANDA10</span>
             </div>
             <div className="flex items-center justify-center rounded-xl px-4 py-1.5 md:px-6">
               <span className="font-serif text-xs font-normal text-white md:text-sm">
-                СКИДКА 10% НА ПЕРВЫЙ ЗАКАЗ
+                БЕСПЛАТНАЯ ДОСТАВКА ОТ 3000 Р
               </span>
             </div>
             <div className="flex items-center justify-center rounded-xl bg-white px-6 py-1.5 md:px-8">
-              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: ПЕРВЫЙ10</span>
+              <span className="font-serif text-xs font-normal text-black md:text-sm">ПРОМОКОД: PANDA10</span>
             </div>
             <div className="flex items-center justify-center rounded-xl px-4 py-1.5 md:px-6">
               <span className="font-serif text-xs font-normal text-white md:text-sm">
@@ -314,26 +308,39 @@ export default function YerbaVerdeLandingPage() {
           ref={heroRef}
           className="relative flex min-h-[600px] w-full items-center justify-center px-6 py-16 md:min-h-[800px] md:px-20 md:py-24 lg:min-h-[1030px] lg:px-80"
           style={{
-            backgroundImage: `radial-gradient(74.86% 63.04% at 50% 71.13%, rgba(14, 14, 14, 0) 0%, #0E0E0E 100%), linear-gradient(190.21deg, rgba(14, 14, 14, 0) 48.79%, #0E0E0E 91.19%), url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/hero-background-QatnDXVXAGi0F0KCe4tuAQxe2m4T4E.png)`,
+            backgroundImage: `radial-gradient(74.86% 63.04% at 50% 71.13%, rgba(6, 10, 20, 0) 0%, #060A14 100%), linear-gradient(190.21deg, rgba(6, 10, 20, 0) 48.79%, #060A14 91.19%), radial-gradient(ellipse at center, #0A1830 0%, #060A14 100%)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
+          {/* Neon glow effect */}
+          <div className="pointer-events-none absolute inset-0 flex items-center justify-center">
+            <div className="h-[500px] w-[500px] rounded-full bg-[#3B9EFF] opacity-5 blur-[120px]" />
+          </div>
+
           <div className="flex w-full max-w-7xl flex-col items-center gap-8 md:gap-12 lg:gap-14">
             <div className="hero-content flex flex-col items-center gap-5 text-center">
+              <div className="mb-2 flex items-center gap-3">
+                <img
+                  src="https://cdn.poehali.dev/files/6ce55570-f7eb-4189-8a33-0fff0f475036.jpg"
+                  alt="Panda Vape Logo"
+                  className="h-16 w-16 object-contain md:h-20 md:w-20"
+                />
+              </div>
               <h1 className="text-balance font-serif text-3xl leading-tight tracking-tight text-white md:text-5xl lg:text-[56px]">
-                Откройте настоящий вкус чая мате
+                Твой стиль.
+                <span className="block text-[#3B9EFF]">Твой вкус.</span>
               </h1>
               <p className="max-w-4xl text-pretty text-base leading-relaxed tracking-tight text-[#CCCCCC] md:text-lg">
-                Уникальный опыт, который превращает каждую чашку в особенный момент.
+                Премиальные вейп-устройства и жидкости Panda Vape — яркие вкусы, безупречное качество, стиль который говорит за себя.
               </p>
               <div className="flex flex-wrap items-center justify-center gap-2.5">
-                <Button className="h-12 rounded-xl bg-white px-4 font-serif text-base text-[#0E0E0E] hover:bg-white/90 md:text-lg">
-                  Купить сейчас
+                <Button className="h-12 rounded-xl bg-[#3B9EFF] px-6 font-serif text-base text-white hover:bg-[#3B9EFF]/90 md:text-lg">
+                  Выбрать устройство
                 </Button>
                 <Button
                   variant="outline"
-                  className="h-12 rounded-xl border-[#CCCCCC] bg-transparent font-serif text-base text-white hover:bg-white/10 md:text-lg"
+                  className="h-12 rounded-xl border-[#3B9EFF]/50 bg-transparent font-serif text-base text-white hover:bg-[#3B9EFF]/10 md:text-lg"
                 >
                   Узнать больше
                 </Button>
@@ -341,8 +348,8 @@ export default function YerbaVerdeLandingPage() {
             </div>
             <div className="hero-image relative h-[300px] w-full max-w-2xl md:h-[400px] lg:h-[583px] lg:max-w-[884px]">
               <img
-                src="/images/design-mode/hero-image.png"
-                alt="Yerba Verde - премиальный чай мате"
+                src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/5d445b8a-39f5-4390-871e-a08e68f9cc9a.jpg"
+                alt="Panda Vape - премиальные устройства"
                 className="h-full w-full object-contain"
               />
             </div>
@@ -354,35 +361,33 @@ export default function YerbaVerdeLandingPage() {
           <div className="mx-auto flex max-w-7xl flex-col items-start gap-8 lg:flex-row lg:gap-12">
             <div className="benefits-title flex flex-col gap-6 lg:flex-1">
               <h2 className="text-balance font-serif text-3xl leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
-                Непревзойденный вкус и качество
+                Качество, которое чувствуется с первой затяжки
               </h2>
               <p className="text-pretty text-base leading-relaxed tracking-tight text-white md:text-lg">
-                Натуральный чай мате высшего качества, сбалансированный и ароматный, без добавления сахара, для
-                настоящих ценителей традиционного напитка.
+                Panda Vape — это не просто устройство. Это опыт, который превращает каждый момент в удовольствие. Мы выбираем только лучшее для тебя.
               </p>
             </div>
             <div className="flex flex-col gap-2 lg:flex-1">
-              <div className="benefit-card flex flex-col gap-2 rounded-[20px] bg-gradient-to-r from-[#6B5C08] to-[#0E0E0E] p-6 md:p-8">
-                <h3 className="font-serif text-2xl leading-tight tracking-tight text-white md:text-4xl">100% Натуральный</h3>
+              <div className="benefit-card flex flex-col gap-2 rounded-[20px] bg-gradient-to-r from-[#1A3A6B] to-[#060A14] p-6 md:p-8">
+                <h3 className="font-serif text-2xl leading-tight tracking-tight text-white md:text-4xl">Сертифицированное качество</h3>
                 <p className="text-sm leading-relaxed tracking-tight text-white md:text-base">
-                  Чай мате из лучших плантаций Южной Америки, более 3000 листьев на килограмм.
+                  Все устройства и жидкости проходят строгий контроль качества и соответствуют международным стандартам.
                 </p>
               </div>
-              <div className="benefit-card flex flex-col gap-2 rounded-[20px] bg-gradient-to-r from-[#6B5C08] to-[#0E0E0E] p-6 md:p-8">
+              <div className="benefit-card flex flex-col gap-2 rounded-[20px] bg-gradient-to-r from-[#1A3A6B] to-[#060A14] p-6 md:p-8">
                 <h3 className="font-serif text-2xl leading-tight tracking-tight text-white md:text-4xl">
-                  Мягкий и насыщенный вкус
+                  Богатая палитра вкусов
                 </h3>
                 <p className="text-sm leading-relaxed tracking-tight text-white md:text-base">
-                  Идеальный баланс аромата и вкуса, без необходимости добавления сахара.
+                  Более 50 вкусов — от фруктовых до освежающих ментоловых. Найди свой идеальный вкус в линейке Panda Vape.
                 </p>
               </div>
-              <div className="benefit-card flex flex-col gap-2 rounded-[20px] bg-gradient-to-r from-[#6B5C08] to-[#0E0E0E] p-6 md:p-8">
+              <div className="benefit-card flex flex-col gap-2 rounded-[20px] bg-gradient-to-r from-[#1A3A6B] to-[#060A14] p-6 md:p-8">
                 <h3 className="font-serif text-2xl leading-tight tracking-tight text-white md:text-4xl">
-                  Выращен в горах
+                  Длительное время работы
                 </h3>
                 <p className="text-sm leading-relaxed tracking-tight text-white md:text-base">
-                  Растет на высоте более 1200 метров в идеальных климатических условиях, что обеспечивает
-                  уникальный и стойкий вкус.
+                  Мощные аккумуляторы и эффективные испарители обеспечивают долгое время работы без подзарядки.
                 </p>
               </div>
             </div>
@@ -394,25 +399,20 @@ export default function YerbaVerdeLandingPage() {
           <div className="mx-auto flex max-w-7xl flex-col items-center gap-8 lg:flex-row lg:gap-12">
             <div className="about-image w-full lg:flex-1">
               <img
-                src="/images/design-mode/about-image.png"
-                alt="Карта происхождения чая мате"
+                src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/d20ad638-2230-4da4-98df-b62ded762667.jpg"
+                alt="Panda Vape коллекция"
                 className="h-auto w-full rounded-2xl object-cover"
               />
             </div>
             <div className="about-content flex flex-col gap-6 lg:flex-1">
               <h2 className="font-serif text-3xl leading-tight tracking-tight text-white md:text-4xl lg:text-5xl">
-                Происхождение вкуса
+                О бренде Panda Vape
               </h2>
               <p className="text-pretty text-base leading-relaxed tracking-tight text-white md:text-lg">
-                В одной из самых высокогорных точек Южной Америки рождается чай мате, который выделяется
-                своим несравненным качеством. На высоте более 1200 метров идеальный климат и плодородная
-                почва создают условия для выращивания мате с уникальным ароматом и вкусом. Каждый лист
-                тщательно собирается, гарантируя сбалансированный и стойкий вкус, который делает каждую
-                чашку особенной. От горных плантаций до вашей чашки — испытайте настоящую сущность
-                натурального чая мате.
+                Panda Vape — бренд, созданный для тех, кто ценит стиль и качество. Мы тщательно отбираем каждое устройство и каждую жидкость, чтобы ты получил только лучшее. Наша миссия — сделать каждую затяжку незабываемой. От минималистичных под-систем до мощных боксмодов — у нас есть всё для твоего идеального вейпинга.
               </p>
-              <Button className="h-12 w-full rounded-[20px] bg-gradient-to-r from-[#6B5C08] to-[#B59F26] font-serif text-lg text-white hover:opacity-90 md:text-xl">
-                Купить сейчас
+              <Button className="h-12 w-full rounded-[20px] bg-gradient-to-r from-[#1A3A6B] to-[#3B9EFF] font-serif text-lg text-white hover:opacity-90 md:text-xl">
+                Перейти в каталог
               </Button>
             </div>
           </div>
@@ -421,29 +421,29 @@ export default function YerbaVerdeLandingPage() {
         {/* Desire */}
         <section ref={desireRef} className="w-full px-6 py-16 md:px-20 md:py-24 lg:px-80 lg:py-28">
           <div className="mx-auto max-w-7xl">
-            <div className="rounded-[40px] border-2 border-[#1E1E1E] bg-[#0E0E0E] px-6 py-12 md:px-12 md:py-16 lg:px-24">
+            <div className="rounded-[40px] border-2 border-[#1A3A6B] bg-[#060A14] px-6 py-12 md:px-12 md:py-16 lg:px-24">
               <h2 className="mb-8 text-balance text-center font-serif text-3xl leading-tight tracking-tight text-white md:mb-12 md:text-4xl lg:text-[56px]">
-                Откройте для себя настоящий вкус традиции в любой момент
+                Найди свой идеальный вейп в любой момент
               </h2>
               <div className="grid grid-cols-1 gap-6 md:grid-cols-3 md:gap-8">
                 <div className="desire-image overflow-hidden rounded-2xl rounded-b-none">
                   <img
-                    src="/images/design-mode/desire-image-01.png"
-                    alt="Yerba Verde - упаковка"
+                    src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/5d445b8a-39f5-4390-871e-a08e68f9cc9a.jpg"
+                    alt="Panda Vape устройство"
                     className="h-full w-full object-cover"
                   />
                 </div>
                 <div className="desire-image overflow-hidden rounded-2xl rounded-b-none">
                   <img
-                    src="/images/design-mode/desire-image-02.png"
-                    alt="Yerba Verde - упаковка"
+                    src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/d20ad638-2230-4da4-98df-b62ded762667.jpg"
+                    alt="Panda Vape коллекция"
                     className="h-full w-full object-cover"
                   />
                 </div>
                 <div className="desire-image overflow-hidden rounded-2xl">
                   <img
-                    src="/images/design-mode/desire-image-03.png"
-                    alt="Yerba Verde - упаковка"
+                    src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/a4ac82d6-47c1-4acb-8371-5ed82fe3c0a5.jpg"
+                    alt="Panda Vape ассортимент"
                     className="h-full w-full object-cover"
                   />
                 </div>
@@ -457,24 +457,23 @@ export default function YerbaVerdeLandingPage() {
           <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 md:gap-12">
             <div className="instigate-content flex flex-col gap-6 text-center">
               <h2 className="text-balance font-serif text-3xl leading-tight tracking-tight text-white md:text-4xl lg:text-[56px]">
-                Чего вы ждете?
+                Чего ты ждёшь?
               </h2>
               <p className="text-pretty text-base leading-relaxed tracking-tight text-[#CCCCCC] md:text-lg">
-                Жизнь состоит из моментов, и хороший мате превращает простое в особенное. Не соглашайтесь на
-                меньшее — выбирайте настоящую эссенцию вкуса и наслаждайтесь каждым глотком.
+                Жизнь слишком коротка для скучных устройств. Panda Vape — это твой стиль, твой вкус, твоя история. Не соглашайся на меньшее.
               </p>
             </div>
             <div
               className="instigate-image relative flex min-h-[400px] w-full items-end justify-center rounded-[40px] p-6 md:min-h-[600px] md:p-10 lg:min-h-[850px]"
               style={{
-                backgroundImage:
-                  "url(https://hebbkx1anhila5yf.public.blob.vercel-storage.com/box-image-f1qFMJiDw7Rhdpat9cdzPtUdrGnBUq.png)",
+                backgroundImage: `url(https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/a4ac82d6-47c1-4acb-8371-5ed82fe3c0a5.jpg)`,
                 backgroundSize: "cover",
                 backgroundPosition: "center",
               }}
             >
-              <Button className="h-16 w-full max-w-md rounded-[20px] bg-gradient-to-r from-[#6B5C08] to-[#B59F26] font-serif text-xl text-white hover:opacity-90 md:h-24 md:text-3xl lg:text-[32px]">
-                Купить сейчас
+              <div className="absolute inset-0 rounded-[40px] bg-gradient-to-t from-[#060A14] via-transparent to-transparent" />
+              <Button className="relative z-10 h-16 w-full max-w-md rounded-[20px] bg-gradient-to-r from-[#1A3A6B] to-[#3B9EFF] font-serif text-xl text-white hover:opacity-90 md:h-24 md:text-3xl lg:text-[32px]">
+                Выбрать сейчас
               </Button>
             </div>
           </div>
@@ -485,17 +484,16 @@ export default function YerbaVerdeLandingPage() {
           <div className="mx-auto flex max-w-5xl flex-col items-center gap-8 md:gap-12">
             <div className="why-content flex flex-col gap-6 text-center">
               <h2 className="text-balance font-serif text-3xl leading-tight tracking-tight text-white md:text-4xl lg:text-[56px]">
-                Почему выбирают Yerba Verde?
+                Почему выбирают Panda Vape?
               </h2>
               <p className="text-pretty text-base leading-relaxed tracking-tight text-[#CCCCCC] md:text-lg">
-                Жизнь состоит из моментов, и хороший мате превращает простое в особенное. Не соглашайтесь на
-                меньшее — выбирайте настоящую эссенцию вкуса и наслаждайтесь каждым глотком.
+                Потому что мы не просто продаём устройства — мы создаём культуру. Каждый продукт в нашей линейке — это сочетание стиля, надёжности и удовольствия.
               </p>
             </div>
             <div className="why-image w-full">
               <img
-                src="/images/design-mode/why-image.png"
-                alt="Почему выбирают Yerba Verde"
+                src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/d20ad638-2230-4da4-98df-b62ded762667.jpg"
+                alt="Почему выбирают Panda Vape"
                 className="h-auto w-full rounded-2xl object-cover"
               />
             </div>
@@ -506,89 +504,89 @@ export default function YerbaVerdeLandingPage() {
         <section ref={pricingRef} className="w-full px-6 py-16 md:px-20 md:py-24 lg:px-[420px] lg:py-28">
           <div className="mx-auto grid max-w-5xl grid-cols-1 gap-6 md:grid-cols-2 md:gap-8">
             {/* Card 1 */}
-            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-[#333333] to-[#0E0E0E] p-6 shadow-lg md:p-8">
-              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#6B5C08]">
+            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-[#0D1A2E] to-[#060A14] p-6 shadow-lg md:p-8">
+              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#0D1A2E]">
                 <img
-                  src="/images/design-mode/image-card-01.png"
-                  alt="Чай мате Yerba Verde - 1 кг"
+                  src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/5d445b8a-39f5-4390-871e-a08e68f9cc9a.jpg"
+                  alt="Panda Vape Pod"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-semibold tracking-tight text-white md:text-xl">
-                  Чай мате Yerba Verde
+                  Panda Vape Pod
                 </h3>
-                <p className="text-sm text-white/55 md:text-base">1 кг</p>
+                <p className="text-sm text-white/55 md:text-base">Стартовый набор</p>
               </div>
-              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">2 500 р.</p>
+              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">1 990 р.</p>
               <p className="text-xs tracking-tight text-white md:text-sm">Рассрочка до 3 месяцев</p>
-              <Button className="h-12 w-full rounded-xl bg-[#B59F26] text-base font-medium text-white hover:bg-[#B59F26]/90 md:text-lg">
+              <Button className="h-12 w-full rounded-xl bg-[#3B9EFF] text-base font-medium text-white hover:bg-[#3B9EFF]/90 md:text-lg">
                 КУПИТЬ
               </Button>
             </Card>
 
             {/* Card 2 */}
-            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-[#333333] to-[#0E0E0E] p-6 shadow-lg md:p-8">
-              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#6B5C08]">
+            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-[#3B9EFF]/30 bg-gradient-to-br from-[#0D1A2E] to-[#060A14] p-6 shadow-lg md:p-8">
+              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#0D1A2E]">
                 <img
-                  src="/images/design-mode/image-card-02.png"
-                  alt="Набор для мате Yerba Verde"
+                  src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/d20ad638-2230-4da4-98df-b62ded762667.jpg"
+                  alt="Panda Vape Kit"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-semibold tracking-tight text-white md:text-xl">
-                  Набор для мате Yerba Verde
+                  Panda Vape Kit
                 </h3>
-                <p className="text-sm text-white/55 md:text-base">Мате + Калабас + Бомбилья</p>
+                <p className="text-sm text-white/55 md:text-base">Устройство + 3 картриджа</p>
               </div>
-              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">7 500 р.</p>
+              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">3 490 р.</p>
               <p className="text-xs tracking-tight text-white md:text-sm">Рассрочка до 4 месяцев</p>
-              <Button className="h-12 w-full rounded-xl bg-[#B59F26] text-base font-medium text-white hover:bg-[#B59F26]/90 md:text-lg">
+              <Button className="h-12 w-full rounded-xl bg-[#3B9EFF] text-base font-medium text-white hover:bg-[#3B9EFF]/90 md:text-lg">
                 КУПИТЬ
               </Button>
             </Card>
 
             {/* Card 3 */}
-            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-[#333333] to-[#0E0E0E] p-6 shadow-lg md:p-8">
-              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#6B5C08]">
+            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-[#0D1A2E] to-[#060A14] p-6 shadow-lg md:p-8">
+              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#0D1A2E]">
                 <img
-                  src="/images/design-mode/image-card-03.png"
-                  alt="Набор 3 упаковки чая мате Yerba Verde"
+                  src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/a4ac82d6-47c1-4acb-8371-5ed82fe3c0a5.jpg"
+                  alt="Panda Vape жидкости набор"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-semibold tracking-tight text-white md:text-xl">
-                  Набор 3 упаковки Yerba Verde
+                  Набор жидкостей Panda
                 </h3>
-                <p className="text-sm text-white/55 md:text-base">3 кг</p>
+                <p className="text-sm text-white/55 md:text-base">5 вкусов × 30 мл</p>
               </div>
-              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">6 900 р.</p>
+              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">2 750 р.</p>
               <p className="text-xs tracking-tight text-white md:text-sm">Рассрочка до 3 месяцев</p>
-              <Button className="h-12 w-full rounded-xl bg-[#B59F26] text-base font-medium text-white hover:bg-[#B59F26]/90 md:text-lg">
+              <Button className="h-12 w-full rounded-xl bg-[#3B9EFF] text-base font-medium text-white hover:bg-[#3B9EFF]/90 md:text-lg">
                 КУПИТЬ
               </Button>
             </Card>
 
             {/* Card 4 */}
-            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-[#333333] to-[#0E0E0E] p-6 shadow-lg md:p-8">
-              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#6B5C08]">
+            <Card className="pricing-card flex flex-col gap-4 rounded-2xl border border-white/10 bg-gradient-to-br from-[#0D1A2E] to-[#060A14] p-6 shadow-lg md:p-8">
+              <div className="aspect-square w-full overflow-hidden rounded-[20px] bg-[#0D1A2E]">
                 <img
-                  src="/images/design-mode/image-card-04.png"
-                  alt="Набор 10 упаковок чая мате Yerba Verde"
+                  src="https://cdn.poehali.dev/projects/53683154-d19b-4d34-b3e3-cafe66d54a93/files/5d445b8a-39f5-4390-871e-a08e68f9cc9a.jpg"
+                  alt="Panda Vape Pro"
                   className="h-full w-full object-cover"
                 />
               </div>
               <div className="flex flex-col gap-1">
                 <h3 className="text-lg font-semibold tracking-tight text-white md:text-xl">
-                  Набор 10 упаковок Yerba Verde
+                  Panda Vape Pro
                 </h3>
-                <p className="text-sm text-white/55 md:text-base">10 кг</p>
+                <p className="text-sm text-white/55 md:text-base">Мощный боксмод + танк</p>
               </div>
-              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">19 900 р.</p>
-              <p className="text-xs tracking-tight text-white md:text-sm">Рассрочка до 4 месяцев</p>
-              <Button className="h-12 w-full rounded-xl bg-[#B59F26] text-base font-medium text-white hover:bg-[#B59F26]/90 md:text-lg">
+              <p className="text-4xl font-bold tracking-tight text-white md:text-5xl">7 900 р.</p>
+              <p className="text-xs tracking-tight text-white md:text-sm">Рассрочка до 6 месяцев</p>
+              <Button className="h-12 w-full rounded-xl bg-[#3B9EFF] text-base font-medium text-white hover:bg-[#3B9EFF]/90 md:text-lg">
                 КУПИТЬ
               </Button>
             </Card>
@@ -598,11 +596,11 @@ export default function YerbaVerdeLandingPage() {
         {/* CTA */}
         <section ref={ctaRef} className="w-full px-6 py-16 md:px-20 md:py-24 lg:px-[420px] lg:py-28">
           <div className="mx-auto max-w-5xl">
-            <div className="cta-box flex flex-col items-center gap-6 rounded-[20px] bg-gradient-to-r from-[#6B5C08] to-[#B59F26] p-6 md:flex-row md:gap-8 md:p-12 lg:p-16">
+            <div className="cta-box flex flex-col items-center gap-6 rounded-[20px] bg-gradient-to-r from-[#1A3A6B] to-[#3B9EFF] p-6 md:flex-row md:gap-8 md:p-12 lg:p-16">
               <p className="flex-1 text-balance text-center font-semibold leading-tight tracking-tight text-white md:text-left md:text-2xl lg:text-[26px]">
-                Свяжитесь с нами прямо сейчас и узнайте больше о Yerba Verde!
+                Свяжитесь с нами и получите персональную консультацию по выбору устройства Panda Vape!
               </p>
-              <Button className="h-12 w-full rounded-xl bg-[#0E0E0E] text-base text-white hover:bg-[#0E0E0E]/90 md:w-auto md:px-8 md:text-lg">
+              <Button className="h-12 w-full rounded-xl bg-[#060A14] text-base text-white hover:bg-[#060A14]/90 md:w-auto md:px-8 md:text-lg">
                 Связаться с нами
               </Button>
             </div>
@@ -610,13 +608,20 @@ export default function YerbaVerdeLandingPage() {
         </section>
 
         {/* Footer */}
-        <footer className="w-full border-t border-[#333333] px-6 py-12 md:px-20 lg:px-[420px]">
+        <footer className="w-full border-t border-[#1A3A6B] px-6 py-12 md:px-20 lg:px-[420px]">
           <div className="mx-auto flex max-w-5xl flex-col items-center justify-center gap-6">
-            <h2 className="font-serif text-2xl tracking-tight text-white md:text-3xl">
-              YERBA <span className="text-[#B59F26]">VERDE</span>
-            </h2>
+            <div className="flex items-center gap-3">
+              <img
+                src="https://cdn.poehali.dev/files/6ce55570-f7eb-4189-8a33-0fff0f475036.jpg"
+                alt="Panda Vape"
+                className="h-10 w-10 object-contain"
+              />
+              <h2 className="font-serif text-2xl tracking-tight text-white md:text-3xl">
+                PANDA <span className="text-[#3B9EFF]">VAPE</span>
+              </h2>
+            </div>
             <p className="text-center text-sm leading-relaxed tracking-tight text-white/55 md:text-base">
-              2025 - Yerba Verde. Все права защищены.
+              2025 - Panda Vape. Все права защищены.
             </p>
           </div>
         </footer>
